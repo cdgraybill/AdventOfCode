@@ -5,14 +5,12 @@ function Day01Part01() {
     var largestBag = 0;
     var temp = 0;
 
-    for (let i = 0; i < snacks.length; i++) {
-        if (snacks[i] === '' && temp > largestBag) {
+    for (const snack of snacks) {
+        if (snack.length === 0 && temp > largestBag) {
             largestBag = temp;
             temp = 0;
-            continue;
         } else {
-            var snack = parseInt(snacks[i]);
-            temp += snack;
+            temp += parseInt(snack);
         }
     }
 
