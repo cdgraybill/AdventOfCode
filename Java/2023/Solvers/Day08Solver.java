@@ -29,6 +29,8 @@ public class Day08Solver extends InputParser {
         return node;
     }
 
+    //this is a test
+
     private String findNextNode(char direction, String line) {
         String nextNode = "";
 
