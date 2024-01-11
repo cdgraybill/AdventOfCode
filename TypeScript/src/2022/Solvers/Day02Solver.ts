@@ -1,6 +1,6 @@
 import { parseToStrings } from "../Inputs/InputParser.js";
 
-var rounds = parseToStrings("TypeScript/src/2022/Inputs/Day01Input.txt");
+var rounds = parseToStrings("TypeScript/src/2022/Inputs/Day02Input.txt");
 
 function day02Part01() {
     var score = 0;
@@ -18,8 +18,13 @@ function day02Part01() {
     }
 
     for (const round of rounds) {
-        
+        if (Object.keys(possibleOutcomes).includes(round)) {
+            var points = possibleOutcomes[round];
+            score += points;
+        }
     }
 
     return score;
 }
+
+console.log(day02Part01());
