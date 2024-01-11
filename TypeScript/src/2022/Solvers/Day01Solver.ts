@@ -50,5 +50,3 @@ function Day01Part02() {
 
     return first + second + third;
 } 
-
-console.log(Day01Part02());
