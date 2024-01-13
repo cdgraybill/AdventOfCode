@@ -11,9 +11,12 @@ function day03Part01() {
         var compartmentTwo = bag.substring(bagSize / 2);
 
         for (let i = 0; i < compartmentOne.length; i++) {
-            if (compartmentTwo.includes(compartmentOne[i]) ) {
-                answer += compartmentOne[i].toLowerCase().charCodeAt(0) - 96;
-                if (compartmentOne[i] == compartmentOne[i].toUpperCase()) {
+            var pointer = compartmentOne[i];
+
+            if (compartmentTwo.includes(pointer) ) {
+                answer += pointer.toLowerCase().charCodeAt(0) - 96;
+
+                if (pointer == pointer.toUpperCase()) {
                     answer += 26;
                 }
                 break;
