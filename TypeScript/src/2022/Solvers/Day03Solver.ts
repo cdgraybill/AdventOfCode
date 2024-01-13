@@ -11,18 +11,12 @@ function day03Part01() {
         var compartmentTwo = bag.substring(bagSize / 2);
 
         for (let i = 0; i < compartmentOne.length; i++) {
-            for (let j = 0; j < compartmentTwo.length; j++) {
-                var pointerOne = compartmentOne[i];
-                var pointerTwo = compartmentTwo[j];
-                if (pointerOne == pointerTwo && pointerTwo == pointerTwo.toUpperCase()) {
-                    answer += pointerTwo.charCodeAt(0) - 38;
-                    continue;
+            if (compartmentTwo.includes(compartmentOne[i]) ) {
+                answer += compartmentOne[i].toLowerCase().charCodeAt(0) - 96;
+                if (compartmentOne[i] == compartmentOne[i].toUpperCase()) {
+                    answer += 26;
                 }
-
-                if (pointerOne == pointerTwo && pointerTwo == pointerTwo.toLowerCase()) {
-                    answer += pointerTwo.charCodeAt(0) - 96;
-                    continue;
-                }
+                break;
             }
         }
     }
