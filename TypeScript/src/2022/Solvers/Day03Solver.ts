@@ -9,18 +9,21 @@ function day03Part01() {
         var bagSize = bag.length;
         var compartmentOne = bag.substring(0, bagSize / 2);
         var compartmentTwo = bag.substring(bagSize / 2);
-        const regex = /[A-Za-z]/g;
 
-        for (const item of compartmentOne) {
-            const found = compartmentTwo.match(regex).toString();
-            if (found.length > 0 && found == found.toUpperCase()) {
-                answer += found.charCodeAt(0) - 38;
-            }
+        for (let i = 0; i < compartmentOne.length; i++) {
+            for (let j = 0; j < compartmentTwo.length; j++) {
+                var pointerOne = compartmentOne[i];
+                var pointerTwo = compartmentTwo[j];
+                if (pointerOne == pointerTwo && pointerTwo == pointerTwo.toUpperCase()) {
+                    answer += pointerTwo.charCodeAt(0) - 38;
+                    continue;
+                }
 
-            if (found.length > 0 && found == found.toLowerCase()) {
-                answer += found.charCodeAt(0) - 96;
+                if (pointerOne == pointerTwo && pointerTwo == pointerTwo.toLowerCase()) {
+                    answer += pointerTwo.charCodeAt(0) - 96;
+                    continue;
+                }
             }
-                
         }
     }
 
