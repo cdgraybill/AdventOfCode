@@ -18,6 +18,22 @@ function day04Part01() {
     return answer;
 }
 
+function day04Part02() {
+    var answer = 0;
+
+    for (const assignment of assignments) {
+        var parsed = parseAssignment(assignment);
+        var pairOne = parsed.firstPair;
+        var pairTwo = parsed.secondPair;
+
+        if ((pairOne[1] >= pairTwo[0] && pairOne[0] <= pairTwo[1])) {
+            answer++;
+        }
+    }
+
+    return answer;
+}
+
 function parseAssignment(assignment: string) {
     var splitIndex = assignment.indexOf(",");
     var firstPair = assignment.substring(0, splitIndex).split("-").map(x => parseInt(x));
@@ -26,4 +42,4 @@ function parseAssignment(assignment: string) {
     return {firstPair, secondPair};
 }
 
-console.log(day04Part01());
+console.log(day04Part02());
