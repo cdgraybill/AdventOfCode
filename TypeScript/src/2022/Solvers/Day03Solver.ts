@@ -14,11 +14,7 @@ function day03Part01() {
             var pointer = compartmentOne[i];
 
             if (compartmentTwo.includes(pointer)) {
-                answer += pointer.toLowerCase().charCodeAt(0) - 96;
-
-                if (pointer == pointer.toUpperCase()) {
-                    answer += 26;
-                }
+                answer = incrementAnswer(answer, pointer);
                 break;
             }
         }
@@ -39,14 +35,10 @@ function day03Part02() {
                 var pointer = group[0][i];
 
                 if (group.every(x => x.includes(pointer))) {
-                    answer += pointer.toLowerCase().charCodeAt(0) - 96;
+                    answer = incrementAnswer(answer, pointer);
 
-                if (pointer == pointer.toUpperCase()) {
-                    answer += 26;
-                }
-
-                group = [];
-                break;
+                    group = [];
+                    break;
                 }
             }
         } else {
@@ -57,4 +49,12 @@ function day03Part02() {
     return answer;
 }
 
-console.log(day03Part02());
+function incrementAnswer(answer: number, pointer: any) {
+    answer += pointer.toLowerCase().charCodeAt(0) - 96;
+
+    if (pointer == pointer.toUpperCase()) {
+        answer += 26;
+    }
+    return answer;
+}
+
