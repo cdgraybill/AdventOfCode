@@ -13,7 +13,7 @@ function day03Part01() {
         for (let i = 0; i < compartmentOne.length; i++) {
             var pointer = compartmentOne[i];
 
-            if (compartmentTwo.includes(pointer) ) {
+            if (compartmentTwo.includes(pointer)) {
                 answer += pointer.toLowerCase().charCodeAt(0) - 96;
 
                 if (pointer == pointer.toUpperCase()) {
@@ -27,4 +27,34 @@ function day03Part01() {
     return answer;
 }
 
-console.log(day03Part01());
+function day03Part02() {
+    var answer = 0;
+    var group = [];
+
+    for (const bag of bags) {
+        group.push(bag);
+
+        if (group.length == 3) {
+            for (let i = 0; i < group[0].length; i++) {
+                var pointer = group[0][i];
+
+                if (group.every(x => x.includes(pointer))) {
+                    answer += pointer.toLowerCase().charCodeAt(0) - 96;
+
+                if (pointer == pointer.toUpperCase()) {
+                    answer += 26;
+                }
+
+                group = [];
+                break;
+                }
+            }
+        } else {
+            continue;
+        }
+    }
+
+    return answer;
+}
+
+console.log(day03Part02());
