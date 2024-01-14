@@ -20,8 +20,8 @@ function day04Part01() {
 
 function parseAssignment(assignment: string) {
     var splitIndex = assignment.indexOf(",");
-    var firstPair = assignment.substring(0, splitIndex).split("-");
-    var secondPair = assignment.substring(splitIndex + 1).split("-");
+    var firstPair = assignment.substring(0, splitIndex).split("-").map(x => parseInt(x));
+    var secondPair = assignment.substring(splitIndex + 1).split("-").map(x => parseInt(x));;
     
     return {firstPair, secondPair};
 }
