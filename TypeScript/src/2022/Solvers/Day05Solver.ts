@@ -2,7 +2,7 @@ import { parseToStrings } from "../Inputs/InputParser.js";
 
 var input = parseToStrings("TypeScript/src/2022/Inputs/Day05Input.txt");
 
-function getBoxGrid(input: string[]) {
+function getColumns(input: string[]) {
     var boxGrid = [];
 
     // Let's get the box grid
@@ -19,19 +19,28 @@ function getBoxGrid(input: string[]) {
     var parsedList = new Array<string>(numberOfColumns);
 
     // And then parse it into an array of easily malleable strings
-    for (const line of boxGrid) {
-        for (let i = 1; i < line.length - 1; i += 4) {
-            var box = line[i];
-            var column = boxGrid[boxGrid.length - 1][i];
-            var parsedListIndex = parsedList[column - 1];
+    for (let i = 0; i < boxGrid.length - 1; i ++) {
+        for (let j = 1; j < boxGrid[i].length - 1; j += 4) {
+            var box = boxGrid[i][j];
+            var column = boxGrid[boxGrid.length - 1][j];
 
             if (box != " ") {
-                parsedListIndex += box;
+                parsedList[column - 1] += box;
             }
         }
     }
 
-    return parsedList;
+    // 'undefined' was at the beginning of each string, so we're removing that
+    var columns = parsedList.map(x => x.substring(9));
+
+    return columns;
 }
 
-console.log(getBoxGrid(input));
+function day05Part01() {
+    var columns = getColumns(input);
+
+    var instructions = input.filter(x => x.startsWith("m"));
+    var test = instructions.map(x => x.replace(/[^0-9]+/, ''));
+}
+
+console.log(day05Part01());
