@@ -2,7 +2,7 @@ import { parseToStrings } from "../Inputs/InputParser.js";
 
 var input = parseToStrings("TypeScript/src/2022/Inputs/Day05Input.txt");
 
-function getColumns(input: string[]) {
+function getColumns() {
     var boxGrid = [];
 
     // Let's get the box grid
@@ -33,14 +33,36 @@ function getColumns(input: string[]) {
     // 'undefined' was at the beginning of each string, so we're removing that
     var columns = parsedList.map(x => x.substring(9));
 
-    return columns;
+    return columns.map(x => x.split(""));
+}
+
+function getInstructions() {
+    var lettersRemoved = input.filter(x => x.includes("from")).map(x => x.replace(/\D+/g, ' '));
+    var instructions = [];
+
+    for (const line of lettersRemoved) {
+        instructions.push(line.trim().split(" "));
+    }
+
+    return instructions;
 }
 
 function day05Part01() {
-    var columns = getColumns(input);
+    var columns = getColumns();
+    var instructions = getInstructions();
 
-    var instructions = input.filter(x => x.startsWith("m"));
-    var test = instructions.map(x => x.replace(/[^0-9]+/, ''));
+    for (const line of instructions) {
+        var numberOfCrates = parseInt(line[0]);
+        var fromColumnIndex = parseInt(line[1]) - 1;
+        var toColumnIndex = parseInt(line[2]) - 1;
+
+        for (let i = 0; i < numberOfCrates; i++) {
+            var crate = columns[fromColumnIndex].pop();
+            columns[toColumnIndex].push(crate);
+        }
+    }
+
+    return columns;
 }
 
 console.log(day05Part01());
