@@ -70,4 +70,28 @@ function day05Part01() {
     return answer;
 }
 
-console.log(day05Part01());
+function day05Part02() {
+    var columns = getColumns();
+    var instructions = getInstructions();
+
+    for (const line of instructions) {
+        var numberOfCrates = parseInt(line[0]);
+        var fromColumnIndex = parseInt(line[1]) - 1;
+        var toColumnIndex = parseInt(line[2]) - 1;
+        
+        var crates = columns[fromColumnIndex].splice(columns[fromColumnIndex].length - numberOfCrates, numberOfCrates);
+        
+        for (const crate of crates) {
+            columns[toColumnIndex].push(crate);
+        }
+    }
+
+    var answer = "";
+    for (const column of columns) {
+        answer += column[column.length - 1];
+    }
+
+    return answer;
+}
+
+console.log(day05Part02());
