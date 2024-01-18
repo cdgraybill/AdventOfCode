@@ -33,7 +33,7 @@ function getColumns() {
     // 'undefined' was at the beginning of each string, so we're removing that
     var columns = parsedList.map(x => x.substring(9));
 
-    return columns.map(x => x.split(""));
+    return columns.map(x => x.split("").reverse());
 }
 
 function getInstructions() {
@@ -62,7 +62,12 @@ function day05Part01() {
         }
     }
 
-    return columns;
+    var answer = "";
+    for (const column of columns) {
+        answer += column[column.length - 1];
+    }
+
+    return answer;
 }
 
 console.log(day05Part01());
