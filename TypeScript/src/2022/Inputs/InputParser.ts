@@ -5,4 +5,9 @@ function parseToStrings(input: string) {
   return text.split("\r\n");
 }
 
-export { parseToStrings };
+function parseToString(input: string) {
+  var text = readFileSync(input).toString();
+  return text;
+}
+
+export { parseToStrings, parseToString };
