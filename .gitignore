@@ -452,4 +452,4 @@ FodyWeavers.xsd
 # End of https://www.toptal.com/developers/gitignore/api/java,dotnetcore,visualstudiocode,visualstudio
 
 dist/
-ProblemInputs/
+/ProblemInputs
