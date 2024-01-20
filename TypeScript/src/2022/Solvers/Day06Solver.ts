@@ -1,4 +1,4 @@
-import { parseToString } from "../Inputs/InputParser.js";
+import { parseToString } from "../Helpers/InputParser.js";
 
 var input = parseToString("ProblemInputs/2022/Day06Input.txt");
 

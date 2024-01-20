@@ -1,4 +1,4 @@
-import { parseToStrings } from "../Inputs/InputParser.js";
+import { parseToStrings } from "../Helpers/InputParser.js";
 
 var rounds = parseToStrings("TypeScript/src/2022/Inputs/Day02Input.txt");
 
