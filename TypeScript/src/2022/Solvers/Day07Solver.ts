@@ -2,6 +2,8 @@ import { parseToStrings } from "../Helpers/InputParser.js";
 
 var input = parseToStrings("ProblemInputs/2022/Day06Input.txt");
 
+//tree data structure 
+
 function day07Part1() {
     var answer = 0;
     var directorySize = 0; 
