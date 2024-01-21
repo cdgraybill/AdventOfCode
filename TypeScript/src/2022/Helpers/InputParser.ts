@@ -10,7 +10,24 @@ function parseToString(input: string) {
   return text;
 }
 
+//this function is unique to Day 8, 2022
 function parseTo2dIntArray(input: string) {
+  // var lines = readFileSync(input).toString().split("\r\n");
+  // var forestMap = [];
+  // var treeLine = [];
+  // var treesOnEdge = (lines[0].length * 2) + ((lines.length - 2) * 2);
+
+  // for (let i = 1; i < lines.length - 1; i++) {
+  //   for (let j = 1; j < lines[i].length - 1; j++) {
+  //     const tree = parseInt(lines[i][j]);
+  //     treeLine.push(tree);
+  //   }
+  //   forestMap.push(treeLine);
+  //   treeLine = [];
+  // }
+
+  // return {forestMap, treesOnEdge};
+
   var lines = readFileSync(input).toString().split("\r\n");
   var forestMap = [];
   var treeLine = [];
