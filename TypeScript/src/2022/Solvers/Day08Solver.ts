@@ -54,8 +54,8 @@ function day08part02() {
         for (let l = 1; l < input[k].length - 1; l++) {
             const tree = input[k][l];
 
-            var leftOfTree = getScenicScore(input[k].slice(0, l).reverse(), tree);
             var aboveTree = getScenicScore(verticalLines[l].slice(0, k).reverse(), tree);
+            var leftOfTree = getScenicScore(input[k].slice(0, l).reverse(), tree);
             var rightOfTree = getScenicScore(input[k].slice(l + 1), tree);
             var belowTree = getScenicScore(verticalLines[l].slice(k + 1), tree);
 
@@ -75,16 +75,16 @@ function getScenicScore(treeLine: number[], currentTree: number) {
     var score = 0;
 
     for (const tree of treeLine) {
-        if (treeLine.length === 1) {
+        if (tree >= currentTree) {
             score++;
-            break;
+            break;  
         } else if (currentTree > tree) {
             score++;
         } else {
             break;
         }
     }
-
+    
     return score;
 }
 
