@@ -1,4 +1,4 @@
-import { parseTo2dIntArray, parseToStrings } from "../Helpers/InputParser.js";
+import { parseTo2dIntArray } from "../Helpers/InputParser.js";
 
 var input = parseTo2dIntArray("ProblemInputs/2022/Day08Input.txt");
 
@@ -70,7 +70,6 @@ function day08part02() {
     return answer;
 }
 
-// TODO need to get the scoring algorithim down
 function getScenicScore(treeLine: number[], currentTree: number) {
     var score = 0;
 
