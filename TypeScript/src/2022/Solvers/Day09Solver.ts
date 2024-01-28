@@ -6,7 +6,7 @@ function day09Part01() {
     var answer = 1; // starts at one to account for starting position
 
     //plan: log a series of coordinates in an array, then count all unique coordinates
-    //current task: figuring out the correct algorithim for each case
+    //current task: I think U and L are GTG, need to do R and D
     
     var allPositions = [];
 
@@ -24,10 +24,16 @@ function day09Part01() {
             case "L":
                 xPositionHead -= numberOfSteps;
 
-                for (let j = 0; j < numberOfSteps - 1; j++) {
-                    xPositionTail--;
-                    allPositions.push([xPositionTail, yPositionTail]);
+                if ((xPositionTail - xPositionHead) > 1) {
+                    yPositionTail = yPositionHead;
+                    var numberOfTailMoves = xPositionTail - xPositionHead;
+
+                    for (let j = 0; j < numberOfTailMoves - 1; j++) {
+                        xPositionTail--;
+                        allPositions.push([xPositionTail, yPositionTail]);
+                    }
                 }
+ 
                 break;
 
             case "R":
@@ -45,8 +51,11 @@ function day09Part01() {
             case "U":
                 yPositionHead += numberOfSteps;
 
-                if ((yPositionHead - xPositionTail) > 1) {
-                    for (let j = 0; j < numberOfSteps - 1; j++) {
+                if ((yPositionHead - yPositionTail) > 1) {
+                    xPositionTail = xPositionHead;
+                    var numberOfTailMoves = yPositionHead - yPositionTail
+
+                    for (let j = 0; j < numberOfTailMoves - 1; j++) {
                         yPositionTail++;
                         allPositions.push([xPositionTail, yPositionTail]);
                     }
