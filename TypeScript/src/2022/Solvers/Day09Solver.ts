@@ -6,7 +6,7 @@ function day09Part01() {
     var answer = 1; // starts at one to account for starting position
 
     //plan: log a series of coordinates in an array, then count all unique coordinates
-    //current task: I think U and L are GTG, need to do R and D
+    //current task: I think all cases are good, need to figure out how to get distinct values
     
     var allPositions = [];
 
@@ -39,8 +39,11 @@ function day09Part01() {
             case "R":
                 xPositionHead += numberOfSteps;
 
-                if ((xPositionHead - yPositionTail) > 1) {
-                    for (let j = 0; j < numberOfSteps - 1; j++) {
+                if ((xPositionHead - xPositionTail) > 1) {
+                    yPositionTail = yPositionHead;
+                    var numberOfTailMoves = xPositionHead - xPositionTail;
+
+                    for (let j = 0; j < numberOfTailMoves - 1; j++) {
                         xPositionTail++;
                         allPositions.push([xPositionTail, yPositionTail]);
                     }
@@ -53,7 +56,7 @@ function day09Part01() {
 
                 if ((yPositionHead - yPositionTail) > 1) {
                     xPositionTail = xPositionHead;
-                    var numberOfTailMoves = yPositionHead - yPositionTail
+                    var numberOfTailMoves = yPositionHead - yPositionTail;
 
                     for (let j = 0; j < numberOfTailMoves - 1; j++) {
                         yPositionTail++;
@@ -65,16 +68,24 @@ function day09Part01() {
 
             case "D":
                 yPositionHead -= numberOfSteps;
-                
-                for (let j = 0; j < numberOfSteps - 1; j++) {
-                    yPositionTail--;
-                    allPositions.push([xPositionTail, yPositionTail]);
+
+                if ((yPositionTail - yPositionHead) > 1) {
+                    xPositionTail = xPositionHead;
+                    var numberOfTailMoves = yPositionHead - yPositionTail;
+
+                    for (let j = 0; j < numberOfSteps - 1; j++) {
+                        yPositionTail--;
+                        allPositions.push([xPositionTail, yPositionTail]);
+                    }
                 }
+                
                 break;
         }
     }
 
-    return allPositions;
+    var uniquePositions = new Set(allPositions);
+
+    return [... new Set(allPositions)];
 }
 
 console.log(day09Part01());
