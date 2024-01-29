@@ -83,9 +83,10 @@ function day09Part01() {
         }
     }
 
-    var uniquePositions = new Set(allPositions);
+    //this is so cursed
+    var parsedPositions = JSON.stringify(allPositions).replace("[[", "").replace("]]", "").split("],[");
 
-    return [... new Set(allPositions)];
+    return parsedPositions.length + 1;
 }
 
 console.log(day09Part01());
