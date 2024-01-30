@@ -3,10 +3,8 @@ import { parseToStrings } from "../Helpers/InputParser.js";
 var input = parseToStrings("ProblemInputs/2022/Day09Input.txt");
 
 function day09Part01() {
-    var answer = 1; // starts at one to account for starting position
-
     //plan: log a series of coordinates in an array, then count all unique coordinates
-    //current task: I think all cases are good, need to figure out how to get distinct values
+    //current task: I fixed a parsing issue, but answer is returning wrong number of positions when testing example
     
     var allPositions = [];
 
@@ -17,8 +15,9 @@ function day09Part01() {
     var yPositionHead = 0;
 
     for (let i = 0; i < input.length; i++) {
-        var direction = input[i][0];
-        var numberOfSteps = parseInt(input[i][2]);
+        var split = input[i].split(" ");
+        var direction = split[0];
+        var numberOfSteps = parseInt(split[1]);
 
         switch (direction) {
             case "L":
@@ -38,7 +37,7 @@ function day09Part01() {
 
             case "R":
                 xPositionHead += numberOfSteps;
-
+ 
                 if ((xPositionHead - xPositionTail) > 1) {
                     yPositionTail = yPositionHead;
                     var numberOfTailMoves = xPositionHead - xPositionTail;
