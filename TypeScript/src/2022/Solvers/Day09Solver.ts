@@ -83,9 +83,11 @@ function day09Part01() {
     }
 
     //this is so cursed
-    var parsedPositions = JSON.stringify(allPositions).replace("[[", "").replace("]]", "").split("],[");
+    var parsedPositions = JSON.stringify(allPositions);
+    var asdf = parsedPositions.replace("[[", "").replace("]]", "").split("],[");
+    var set = [...new Set(asdf)];
 
-    return parsedPositions.length + 1;
+    return set.length + 1;
 }
 
 console.log(day09Part01());
