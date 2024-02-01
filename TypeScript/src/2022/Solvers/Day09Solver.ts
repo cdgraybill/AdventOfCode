@@ -3,8 +3,7 @@ import { parseToStrings } from "../Helpers/InputParser.js";
 var input = parseToStrings("ProblemInputs/2022/Day09Input.txt");
 
 function day09Part01() {
-    //plan: log a series of coordinates in an array, then count all unique coordinates
-    //current task: I fixed a parsing issue, but answer is returning wrong number of positions when testing example
+    //current task: Example input gives right answer, but problem input does not
     
     var allPositions = [];
 
