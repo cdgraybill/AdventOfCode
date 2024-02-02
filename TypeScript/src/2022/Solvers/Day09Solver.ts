@@ -82,9 +82,8 @@ function day09Part01() {
     }
 
     //this is so cursed
-    var parsedPositions = JSON.stringify(allPositions);
-    var asdf = parsedPositions.replace("[[", "").replace("]]", "").split("],[");
-    var set = [...new Set(asdf)];
+    var parsedPositions = allPositions.map(([a, b]) => `${a},${b}`);
+    var set = [...new Set(parsedPositions)];
 
     return set.length + 1;
 }
