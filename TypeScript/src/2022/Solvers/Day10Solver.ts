@@ -3,7 +3,7 @@ import { parseToStrings } from "../Helpers/InputParser.js";
 var input = parseToStrings("ProblemInputs/2022/Day10Input.txt");
 
 function day10Part01() {
-    //TODO: think i have the right idea, just need to step through and debug
+    //TODO: signal strength is not always correct
 
     var valueQueue = [0, 0];
     var cpu = 1;
@@ -26,7 +26,7 @@ function day10Part01() {
         for (let j = 0; j < currentCycleCount; j++) {
             cycleNumber++;
             if (cycleNumber === 20 || cycleNumber === 60 || cycleNumber === 100 || cycleNumber === 140 || cycleNumber === 180 || cycleNumber === 220) {
-                var signalStrength = (i + 1) * cpu
+                var signalStrength = cycleNumber * cpu
                 answer += signalStrength;
             }
         }
