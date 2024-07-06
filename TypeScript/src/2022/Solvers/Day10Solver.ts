@@ -20,7 +20,7 @@ function day10Part01() {
         } else {
             valueQueue.push(0);
         }
-
+        
         cpu += valueQueue.shift();
 
         for (let j = 0; j < currentCycleCount; j++) {
@@ -32,7 +32,7 @@ function day10Part01() {
         }
     }
 
-    return answer;
+    return cpu;
 };
 
 console.log(day10Part01())
