@@ -8,6 +8,8 @@ namespace AdventOfCode2022.Solvers
 {
     public class Day01Solver
     {
+        //test
+
         public readonly List<string> ProblemInput = File.ReadLines(@"C:ProblemInputs\Day01Input.txt").ToList();
 
         public List<int> GetHaulsOfAllElves(List<string> sampleInput)
