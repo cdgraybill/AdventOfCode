@@ -8,7 +8,7 @@ namespace AdventOfCode2022.Solvers
 {
     public class Day01Solver
     {
-        //test
+        //testing
 
         public readonly List<string> ProblemInput = File.ReadLines(@"C:ProblemInputs\Day01Input.txt").ToList();
 
