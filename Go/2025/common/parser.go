@@ -5,13 +5,13 @@ import (
 	"strings"
 )
 
-func ParseInput() []string {
-	data, err := os.ReadFile("day1.txt")
+func SplitInputByDelimiter(filePath string, delimiter string) []string {
+	data, err := os.ReadFile(filePath)
 	if err != nil {
 		panic(err)
 	}
 
-	lines := strings.Split(strings.TrimSpace(string(data)), "\n")
+	lines := strings.Split(strings.TrimSpace(string(data)), delimiter)
 
 	return lines
 }

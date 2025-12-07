@@ -7,7 +7,7 @@ import (
 )
 
 func PartTwo() {
-	lines := common.ParseInput()
+	lines := common.SplitInputByDelimiter("day1/day1input.txt", "\n")
 
 	dial := 50
 	answer := 0
