@@ -5,5 +5,5 @@ import (
 )
 
 func main() {
-	day2.PartOne()
+	day2.PartTwo()
 }
